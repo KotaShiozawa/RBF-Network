@@ -61,6 +61,7 @@ class RBFN(object):
         self.centers = self._select_centers(X)
         G = self._calculate_interpolation_matrix(X)
         self.weights = np.dot(np.linalg.pinv(G), Y)
+        return self.weights, G
 
     def predict(self, X):
         """
